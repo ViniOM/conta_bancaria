@@ -1,8 +1,16 @@
-const leia = require("readline-sync")
-import { colors } from "./src/utils/Cores";
+const readlinesync = require("readline-sync");
+import { Conta } from "./src/model/Conta";
+import { colors } from "./src/util/Cores";
 
 export function main() {
   let opcao: number;
+
+  const conta: Conta = new Conta(1, 123, 1, "Vinicios", 1000);
+  conta.visualizar();
+  conta.sacar(500);
+  conta.visualizar();
+  conta.depositar(200);
+  conta.visualizar();
 
   while (true) {
     console.log(
@@ -32,7 +40,7 @@ export function main() {
     );
 
     console.log("Entre com a opção desejada: ");
-    opcao = leia.questionInt("");
+    opcao = readlinesync.questionInt("");
 
     if (opcao == 9) {
       console.log(
@@ -126,7 +134,7 @@ function sobre(): void {
 function keyPress(): void {
   console.log(colors.reset, "");
   console.log("\nPressione enter para continuar...");
-  leia.prompt();
+  readlinesync.prompt();
 }
 
 main();
