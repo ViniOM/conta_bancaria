@@ -1,5 +1,6 @@
 const readlinesync = require("readline-sync");
 import { Conta } from "./src/model/Conta";
+import { ContaCorrente } from "./src/model/ContaCorrente";
 import { colors } from "./src/util/Cores";
 
 export function main() {
@@ -11,6 +12,20 @@ export function main() {
   conta.visualizar();
   conta.depositar(200);
   conta.visualizar();
+
+  const contacorrente: ContaCorrente = new ContaCorrente(
+    2,
+    123,
+    1,
+    "Gabriel",
+    15000,
+    1000
+  );
+  contacorrente.visualizar();
+  contacorrente.sacar(2000);
+  contacorrente.visualizar();
+  contacorrente.depositar(1000);
+  contacorrente.visualizar();
 
   while (true) {
     console.log(
