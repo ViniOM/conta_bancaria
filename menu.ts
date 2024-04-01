@@ -1,5 +1,5 @@
-const leia = require("readline-sync")
-import { colors } from "./src/utils/Cores";
+const readlinesync = require("readline-sync");
+import { colors } from "./src/util/Cores";
 
 export function main() {
   let opcao: number;
@@ -32,7 +32,7 @@ export function main() {
     );
 
     console.log("Entre com a opção desejada: ");
-    opcao = leia.questionInt("");
+    opcao = readlinesync.questionInt("");
 
     if (opcao == 9) {
       console.log(
@@ -126,7 +126,7 @@ function sobre(): void {
 function keyPress(): void {
   console.log(colors.reset, "");
   console.log("\nPressione enter para continuar...");
-  leia.prompt();
+  readlinesync.prompt();
 }
 
 main();
