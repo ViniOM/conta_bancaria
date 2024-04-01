@@ -5,7 +5,7 @@ import { ContaPoupanca } from "./src/model/ContaPoupanca";
 import { colors } from "./src/util/Cores";
 
 export function main() {
-  let opcao, numero, tipo, saldo, agencia, limite, aniversario: number;
+  let opcao, valor, numero, tipo, saldo, agencia, limite, aniversario, numeroDestino: number;
   let titular: string;
 
   const tipoContas = ["Conta Corrente", "Conta Poupanca"];
@@ -16,9 +16,9 @@ export function main() {
     contas.gerarNumero(),
     456,
     1,
-    "Yasmine Lamark",
-    500000,
-    1200
+    "Vinicios",
+    1000,
+    1202
   );
   contas.cadastrar(contaCorrente);
 
@@ -26,7 +26,7 @@ export function main() {
     contas.gerarNumero(),
     123,
     2,
-    "Victor",
+    "Gabriel",
     1000,
     10
   );
@@ -62,7 +62,7 @@ export function main() {
     console.log("Entre com a opção desejada: ");
     opcao = readlinesync.questionInt("");
 
-    if (opcao == 9) {
+      if(opcao=== 9) {
       console.log(
         colors.fg.greenstrong,
         "\nBanco do Brazil com Z - O seu Futuro começa aqui!"
@@ -72,7 +72,7 @@ export function main() {
       process.exit(0);
 
     }
-
+    
     switch (opcao) {
       case 1:
           console.log(colors.fg.whitestrong, "\n\nCriar Conta\n\n", colors.reset);
@@ -179,15 +179,40 @@ export function main() {
       case 6:
           console.log(colors.fg.whitestrong, "\n\nSaque\n\n", colors.reset);
 
+          console.log("Digite o número da Conta: ");
+          numero = readlinesync.questionInt("");
+
+          console.log("Digite o valor que deseja sacar: ")
+          valor = readlinesync.questionFloat("");
+
+          contas.sacar(numero, valor);
           keyPress()
           break;
       case 7:
           console.log(colors.fg.whitestrong, "\n\nDepósito\n\n", colors.reset);
 
+          console.log("Digite o número da Conta: ");
+          numero = readlinesync.questionInt("");
+
+          console.log("Digite o valor que deseja depositar: ")
+          valor = readlinesync.questionFloat("");
+
+          contas.depositar(numero, valor);
           keyPress()
           break;
       case 8:
           console.log(colors.fg.whitestrong, "\n\nTransferência entre Contas\n\n", colors.reset);
+
+          console.log("Digite o número da Conta de Origem: ");
+          numero = readlinesync.questionInt("");
+
+          console.log("Digite o número da Conta de Destino: ");
+          numeroDestino = readlinesync.questionInt("");
+
+          console.log("Digite o valor que deseja transferir: ")
+          valor = readlinesync.questionFloat("");
+
+          contas.transferir(numero, numeroDestino, valor)
 
           keyPress()
           break;
