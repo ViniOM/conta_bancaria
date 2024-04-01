@@ -12,8 +12,6 @@ export function main() {
 
   const contas: ContaController = new ContaController();
 
-  // Instância da Classe Conta Corrente
-  // Adicionada na Collection listaContas
   const contaCorrente: ContaCorrente = new ContaCorrente(
     contas.gerarNumero(),
     456,
@@ -24,8 +22,6 @@ export function main() {
   );
   contas.cadastrar(contaCorrente);
 
-  // Instância da da Classe ContaPoupanca
-  // Adicionada na Collection listaContas
   const contaPoupanca: ContaPoupanca = new ContaPoupanca(
     contas.gerarNumero(),
     123,
